@@ -1,22 +1,16 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffe6f0;
-  text-align: center;
-  color: #333;
-}
-
-h1 {
-  color: #ff4d88;
-}
-
 .menu a {
+  display: block;
+  margin: 15px;
   font-size: 20px;
-  text-decoration: none;
   color: #ff4d88;
+  text-decoration: none;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 10px;
+.card, .note {
+  background: white;
+  padding: 20px;
+  margin: 15px auto;
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
