@@ -1,6 +1,6 @@
 function checkpassword() {
   const input = document.getElementById("password").value;
-  const correctPassword = "4/12/2541";
+  const correctPassword = "04122541";
 
   if (input === correctPassword) {
     window.location.href = "home.html";
