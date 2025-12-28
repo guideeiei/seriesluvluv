@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6f0;
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  color: #ff4d88;
+}
+
+.menu a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #ff4d88;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
