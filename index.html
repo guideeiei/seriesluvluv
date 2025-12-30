@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Password</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>For You 💖</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Enter Password 💖</h1>
+<div class="login-container">
+  <!-- LEFT IMAGE -->
+  <div class="login-left">
+    <img src="images/login.jpg">
+  </div>
+
+  <!-- RIGHT PASSWORD -->
+  <div class="login-right">
+    <h2>ใส่รหัสลับ 💕</h2>
 
     <div id="passwordDisplay">••••••••</div>
 
     <div class="keypad">
-      <button onclick="pressKey('1')">1</button>
-      <button onclick="pressKey('2')">2</button>
-      <button onclick="pressKey('3')">3</button>
+      <button onclick="addNum('1')">1</button>
+      <button onclick="addNum('2')">2</button>
+      <button onclick="addNum('3')">3</button>
 
-      <button onclick="pressKey('4')">4</button>
-      <button onclick="pressKey('5')">5</button>
-      <button onclick="pressKey('6')">6</button>
+      <button onclick="addNum('4')">4</button>
+      <button onclick="addNum('5')">5</button>
+      <button onclick="addNum('6')">6</button>
 
-      <button onclick="pressKey('7')">7</button>
-      <button onclick="pressKey('8')">8</button>
-      <button onclick="pressKey('9')">9</button>
+      <button onclick="addNum('7')">7</button>
+      <button onclick="addNum('8')">8</button>
+      <button onclick="addNum('9')">9</button>
 
-      <button onclick="clearPassword()">⌫</button>
-      <button onclick="pressKey('0')">0</button>
-      <button onclick="checkPassword()">✓</button>
+      <button onclick="clearPass()">❌</button>
+      <button onclick="addNum('0')">0</button>
+      <button onclick="checkPassword()">✔</button>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <p id="message"></p>
+    <button id="nextBtn" onclick="goHome()">Next ➜</button>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
