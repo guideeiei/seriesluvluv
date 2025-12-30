@@ -2,31 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Notes</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h2>Notes 💌</h2>
+<h2>ถึงเธอ 💌</h2>
 
-  <div class="notes-grid">
-    <img src="13-November-1.JPG">
-    <div class="letter" onclick="openNote()">💌 จดหมายถึงบี๋</div>
-  </div>
+<div class="notes-grid">
+  <img src="July/9-July.jpg">
+  <div class="letter" onclick="openNote()">💌 เปิดจดหมาย</div>
 
-  <button onclick="location.href='home.html'">← Home</button>
+  <img src="November/12-November.jpeg">
+  <div class="letter" onclick="openNote()">💌 เปิดจดหมาย</div>
 </div>
+
+<button onclick="goHome()" style="margin-left:10px">⬅ Back</button>
 
 <div class="popup" id="popup">
   <div class="popup-content">
     <p>
-  From the moment we met in June,  
-  to the day we became a couple on November 1st,  
-  every moment with you has made me truly happy.  
-  <br><br>
-  Thank you for being my safe place 💕
-</p>
-    <button onclick="closeNote()">ปิด</button>
+      From the moment we met in June,  
+      to the day we became a couple on November 1st,  
+      every moment with you has made me truly happy.  
+      <br><br>
+      Thank you for being my safe place 💕
+    </p>
+    <button onclick="closeNote()">Close</button>
   </div>
 </div>
 
