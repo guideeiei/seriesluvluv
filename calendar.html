@@ -2,18 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Calendar</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2 class="calendar-title">Since I confessed to you 💕</h2>
-<p class="calendar-date">1 November 2025 · 6:00 PM</p>
-<p id="timeTogether" class="calendar-time"></p>
+<div class="container">
+  <h2>Since 1 Nov 2025 💗</h2>
 
-<img src="November/2-November-1.JPG" class="top-image">
+  <div class="time-box" id="timeTogether"></div>
 
-<button onclick="goHome()">⬅ Back</button>
+  <div class="gallery">
+    <img src="November/1-November-1.JPG">
+    <img src="November/1-November-2.JPG">
+    <img src="November/1-November-3.JPG">
+    <img src="November/1-November-4.JPG">
+  </div>
+
+  <button onclick="location.href='home.html'">← Home</button>
+</div>
 
 <script src="script.js"></script>
 </body>
