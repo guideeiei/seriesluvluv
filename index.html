@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>For My Love</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>For My Love</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body class="login-page">
 
 <div class="login-container">
+
   <div class="login-left">
     <img src="November/1-November-1.JPG">
   </div>
 
   <div class="login-right">
-    <h2>ใส่วันเกิดของบิบี๋ 💗</h2>
+    <h2>ใส่วันเกิดบิบี๋ 💗</h2>
 
-    <div id="passwordDisplay" class="password-box"></div>
+    <div id="passwordDisplay">••••••••</div>
 
     <div class="keypad">
       <button onclick="addNum('1')">1</button>
@@ -29,12 +31,14 @@
       <button onclick="addNum('9')">9</button>
       <button onclick="clearPass()">←</button>
       <button onclick="addNum('0')">0</button>
-      <button onclick="checkPass()">OK</button>
+      <button onclick="checkPassword()">OK</button>
     </div>
 
     <p id="message"></p>
-    <button id="nextBtn" onclick="goHome()">ไปต่อ 💕</button>
+
+    <button id="nextBtn" class="next-btn" onclick="goHome()">ไปต่อ 💕</button>
   </div>
+
 </div>
 
 <script src="script.js"></script>
