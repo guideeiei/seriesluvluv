@@ -1,16 +1,85 @@
-.menu a {
-  display: block;
-  margin: 15px;
-  font-size: 20px;
-  color: #ff4d88;
-  text-decoration: none;
+/* ===== Global ===== */
+* {
+  box-sizing: border-box;
 }
 
-.card, .note {
-  background: white;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Arial, sans-serif;
+  background: #fffafc;
+  color: #333;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
   padding: 20px;
-  margin: 15px auto;
-  width: 80%;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== Text ===== */
+h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+p {
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ===== Button ===== */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #ff9eb5;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff7f9c;
+}
+
+/* ===== Image ===== */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+/* ===== Memory Section ===== */
+.memory {
+  margin-bottom: 50px;
+}
+
+/* ===== Mobile (iPhone) ===== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+/* ===== Tablet (iPad) ===== */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 40px;
+  }
 }
