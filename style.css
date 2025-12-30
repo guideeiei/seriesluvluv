@@ -1,85 +1,62 @@
-/* ===== Global ===== */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   background: #fffafc;
   color: #333;
 }
 
-/* ===== Layout ===== */
+/* Layout */
 .container {
-  max-width: 900px;
+  max-width: 400px;
   margin: auto;
-  padding: 20px;
+  padding: 30px 20px;
+  text-align: center;
 }
 
-/* ===== Text ===== */
+/* Text */
 h1 {
-  text-align: center;
-  font-size: 28px;
+  font-size: 26px;
+  margin-bottom: 20px;
 }
 
-h2 {
-  text-align: center;
-  margin-top: 40px;
+/* Password dots */
+#passwordDisplay {
+  font-size: 24px;
+  letter-spacing: 6px;
+  margin-bottom: 25px;
 }
 
-p {
-  line-height: 1.6;
-  text-align: center;
+/* Keypad */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-/* ===== Button ===== */
-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 10px;
+.keypad button {
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 12px;
   border: none;
-  background: #ff9eb5;
-  color: white;
+  background: #ffd1dc;
   cursor: pointer;
 }
 
-button:hover {
-  background: #ff7f9c;
+.keypad button:hover {
+  background: #ffb6c8;
 }
 
-/* ===== Image ===== */
-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-top: 15px;
-}
-
-/* ===== Memory Section ===== */
-.memory {
-  margin-bottom: 50px;
-}
-
-/* ===== Mobile (iPhone) ===== */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 15px;
-  }
-}
-
-/* ===== Tablet (iPad) ===== */
+/* iPad */
 @media (min-width: 768px) {
+  .container {
+    max-width: 500px;
+  }
+
   h1 {
     font-size: 32px;
-  }
-
-  .container {
-    padding: 40px;
   }
 }
