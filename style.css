@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
-
-*{box-sizing:border-box;font-family:'Quicksand',sans-serif}
+*{box-sizing:border-box;font-family:'Poppins',sans-serif}
 
 body{
   margin:0;
@@ -8,7 +6,8 @@ body{
   min-height:100vh;
 }
 
-.center{
+/* center pages */
+.center-page{
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -16,6 +15,36 @@ body{
   height:100vh;
 }
 
+/* login */
+.login-container{
+  display:flex;
+  height:100vh;
+}
+.login-left,.login-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+.login-left img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.password-box{
+  font-size:26px;
+  letter-spacing:8px;
+  margin:15px;
+}
+
+/* keypad */
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
 button{
   background:#f38ba0;
   border:none;
@@ -23,30 +52,14 @@ button{
   padding:14px 22px;
   font-size:18px;
   color:white;
-  margin:10px;
 }
 
-/* password */
-.password-container{
-  display:flex;
-  height:100vh;
-}
-.password-left, .password-right{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-.password-left img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.keypad{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
+/* menu */
+.menu a{
+  display:block;
+  margin:15px;
+  font-size:20px;
+  text-decoration:none;
 }
 
 /* memories */
@@ -65,17 +78,23 @@ button{
   max-width:100%;
   max-height:100%;
   border-radius:18px;
+  object-fit:contain;
 }
 
 /* calendar */
 .gallery{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
   gap:10px;
+}
+.gallery img{
+  width:100%;
+  border-radius:14px;
 }
 .time-box{
   font-size:26px;
-  font-weight:700;
+  font-weight:600;
+  text-align:center;
   margin:20px 0;
 }
 
@@ -84,6 +103,10 @@ button{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
+}
+.notes-grid img{
+  width:100%;
+  border-radius:16px;
 }
 .letter{
   background:white;
