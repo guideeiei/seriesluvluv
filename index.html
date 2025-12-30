@@ -9,15 +9,15 @@
 
 <div class="login-container">
   <div class="login-left">
-    <img src="November/1-November-1.JPG" alt="love">
+    <img src="November/1-November-1.JPG">
   </div>
 
   <div class="login-right">
-    <h2>ใส่รหัสผ่าน 💗</h2>
-    <input type="password" id="password" readonly>
+    <h2>ใส่วันเกิดของบิบี๋ 💗</h2>
+
+    <div id="passwordDisplay" class="password-box"></div>
 
     <div class="keypad">
-      <button onclick="addNum('0')">0</button>
       <button onclick="addNum('1')">1</button>
       <button onclick="addNum('2')">2</button>
       <button onclick="addNum('3')">3</button>
@@ -28,14 +28,12 @@
       <button onclick="addNum('8')">8</button>
       <button onclick="addNum('9')">9</button>
       <button onclick="clearPass()">←</button>
+      <button onclick="addNum('0')">0</button>
       <button onclick="checkPass()">OK</button>
     </div>
 
-    <p id="success-text" class="hidden">
-      เก่งมากคั้บบิบี๋ 🥰🥰
-      <br><br>
-      <button onclick="goHome()">ไปต่อ 💕</button>
-    </p>
+    <p id="message"></p>
+    <button id="nextBtn" onclick="goHome()">ไปต่อ 💕</button>
   </div>
 </div>
 
