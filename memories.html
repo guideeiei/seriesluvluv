@@ -2,22 +2,23 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Memories 📸</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Memories</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <h1>Our Memories 📸</h1>
+<h2>Our Memories 📸</h2>
 
-  <div class="card">
-    <p>❤️ First date – 04/12/2022</p>
-  </div>
+<select onchange="showMonth(this.value)">
+  <option value="">เลือกเดือน</option>
+  <option value="june">June</option>
+  <option value="july">July</option>
+</select>
 
-  <div class="card">
-    <p>🍰 Birthday together</p>
-  </div>
+<div id="gallery"></div>
 
-  <a href="home.html">⬅ Back</a>
+<button onclick="goHome()">⬅ Back</button>
 
+<script src="js/script.js"></script>
 </body>
 </html>
