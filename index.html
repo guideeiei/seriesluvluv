@@ -2,45 +2,43 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>For You 💖</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>For My Love</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="login-page">
 
 <div class="login-container">
-
   <div class="login-left">
+    <img src="November/1-November-1.JPG" alt="love">
   </div>
 
   <div class="login-right">
-    <h2>ใส่รหัสลับ 💕</h2>
-
-    <div id="passwordDisplay">••••••••</div>
+    <h2>ใส่รหัสผ่าน 💗</h2>
+    <input type="password" id="password" readonly>
 
     <div class="keypad">
+      <button onclick="addNum('0')">0</button>
       <button onclick="addNum('1')">1</button>
       <button onclick="addNum('2')">2</button>
       <button onclick="addNum('3')">3</button>
-
       <button onclick="addNum('4')">4</button>
       <button onclick="addNum('5')">5</button>
       <button onclick="addNum('6')">6</button>
-
       <button onclick="addNum('7')">7</button>
       <button onclick="addNum('8')">8</button>
       <button onclick="addNum('9')">9</button>
-
-      <button onclick="clearPass()">❌</button>
-      <button onclick="addNum('0')">0</button>
-      <button onclick="checkPassword()">✔</button>
+      <button onclick="clearPass()">←</button>
+      <button onclick="checkPass()">OK</button>
     </div>
 
-    <p id="message"></p>
-    <button id="nextBtn" onclick="goHome()">Next ➜</button>
+    <p id="success-text" class="hidden">
+      เก่งมากคั้บบิบี๋ 🥰🥰
+      <br><br>
+      <button onclick="goHome()">ไปต่อ 💕</button>
+    </p>
   </div>
-
 </div>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
