@@ -1,121 +1,112 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #EFC7C2;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+*{box-sizing:border-box;font-family:'Quicksand',sans-serif}
+
+body{
+  margin:0;
+  background:#EFC7C2;
+  min-height:100vh;
 }
 
-button {
-  font-size: 18px;
-  padding: 14px 28px;
-  border-radius: 25px;
-  border: none;
-  background: #ff6f91;
-  color: white;
-  font-weight: 600;
-  margin: 8px;
-}
-button:active { transform: scale(0.95); }
-
-/* LOGIN */
-.login-container {
-  display: flex;
-  height: 100vh;
-}
-.login-left, .login-right {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.login-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.password-box {
-  font-size: 26px;
-  letter-spacing: 6px;
-  margin: 15px;
+.center{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 
-/* HOME */
-.center-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-}
-.menu a {
-  display: block;
-  font-size: 22px;
-  margin: 15px;
-  text-decoration: none;
-  color: #333;
+button{
+  background:#f38ba0;
+  border:none;
+  border-radius:16px;
+  padding:14px 22px;
+  font-size:18px;
+  color:white;
+  margin:10px;
 }
 
-/* MEMORIES */
-.months button { background:#ff9aa2; }
-.slider {
-  height: 65vh;
+/* password */
+.password-container{
+  display:flex;
+  height:100vh;
+}
+.password-left, .password-right{
+  flex:1;
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  flex-direction:column;
 }
-.slider img {
+.password-left img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.keypad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+/* memories */
+.months{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.slider{
+  height:65vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.slider img{
   max-width:100%;
   max-height:100%;
-  object-fit:contain;
+  border-radius:18px;
 }
 
-/* CALENDAR */
-.calendar-title {
-  font-family:'Playfair Display',serif;
-  font-size:30px;
+/* calendar */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
 }
-.calendar-time {
-  font-size:24px;
-  margin:20px;
-}
-.top-image {
-  max-height:45vh;
-  border-radius:20px;
+.time-box{
+  font-size:26px;
+  font-weight:700;
+  margin:20px 0;
 }
 
-/* NOTES */
-.note-area {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:65vh;
+/* notes */
+.notes-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
 }
-.note-img, .letter {
-  width:45%;
-  height:auto;
-  border-radius:20px;
-}
-.letter {
+.letter{
   background:white;
-  font-size:60px;
-  margin-left:-40px;
+  padding:18px;
+  border-radius:18px;
+  font-size:22px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  cursor:pointer;
+  justify-content:center;
 }
-.popup {
-  display:none;
+
+/* popup */
+.popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.5);
-  justify-content:center;
+  background:rgba(0,0,0,.4);
+  display:none;
   align-items:center;
+  justify-content:center;
 }
-.popup-box {
+.popup-content{
   background:white;
-  padding:30px;
+  padding:22px;
   border-radius:20px;
   max-width:80%;
 }
