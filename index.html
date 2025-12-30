@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Enter Password ❤️</title>
+  <title>Password</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Enter Password 💖</h1>
+  <div class="container">
+    <h1>Enter Password 💖</h1>
 
-  <input type="password" id="password" placeholder="DDMMYYYY">
-  <br><br>
-  <button onclick="checkPassword()">Enter</button>
+    <div id="passwordDisplay">••••••••</div>
 
-  <p id="error"></p>
+    <div class="keypad">
+      <button onclick="pressKey('1')">1</button>
+      <button onclick="pressKey('2')">2</button>
+      <button onclick="pressKey('3')">3</button>
+
+      <button onclick="pressKey('4')">4</button>
+      <button onclick="pressKey('5')">5</button>
+      <button onclick="pressKey('6')">6</button>
+
+      <button onclick="pressKey('7')">7</button>
+      <button onclick="pressKey('8')">8</button>
+      <button onclick="pressKey('9')">9</button>
+
+      <button onclick="clearPassword()">⌫</button>
+      <button onclick="pressKey('0')">0</button>
+      <button onclick="checkPassword()">✓</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
