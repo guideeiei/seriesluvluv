@@ -5,30 +5,32 @@
 <title>Notes</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="center-page">
 
-<h2>ถึงเธอ 💌</h2>
+<h1 class="calendar-title">ข้อความถึงเธอ 💕</h1>
 
 <div class="notes-grid">
-  <img src="July/9-July.jpg">
-  <div class="letter" onclick="openNote()">💌 เปิดจดหมาย</div>
+  <div class="note-item">
+    <img src="November/1-November-2.jpeg">
+    <button class="main-btn small" onclick="openNote()">อ่านจดหมาย 💌</button>
+  </div>
 
-  <img src="November/12-November.jpeg">
-  <div class="letter" onclick="openNote()">💌 เปิดจดหมาย</div>
+  <div class="note-item">
+    <img src="November/12-November.jpeg">
+    <button class="main-btn small" onclick="openNote()">อ่านจดหมาย 💌</button>
+  </div>
 </div>
 
-<button onclick="goHome()" style="margin-left:10px">⬅ Back</button>
+<button class="main-btn back-left" onclick="goHome()">⬅ กลับ</button>
 
-<div class="popup" id="popup">
+<div id="popup" class="popup">
   <div class="popup-content">
-    <p>
-      From the moment we met in June,  
-      to the day we became a couple on November 1st,  
-      every moment with you has made me truly happy.  
-      <br><br>
+    <p class="letter">
+      From the moment we met in June, to the day we became a couple on November 1st,<br>
+      every moment with you has made me truly happy.<br><br>
       Thank you for being my safe place 💕
     </p>
-    <button onclick="closeNote()">Close</button>
+    <button class="main-btn" onclick="closeNote()">ปิด</button>
   </div>
 </div>
 
