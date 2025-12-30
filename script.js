@@ -41,12 +41,12 @@ const images = {
   june: ["27-June-1.JPG","27-June-2.JPG","27-June-3.JPG"],
   july: ["4-July.JPG","9-July.jpg","27-July.JPG"],
   august: ["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"],
-  september: ["1-September.HEIC","2-September.HEIC","3-September.JPG"],
-  october: ["8-October.HEIC","10-October.HEIC","30-October.HEIC"],
+  september: ["1-September.JPG","2-September.JPG","3-September.JPG"],
+  october: ["8-October.JPG","10-October.JPG","30-October.JPG"],
   november: [
-    "1-November-1.JPG","1-November-2.HEIC","1-November-3.JPG","1-November-4.HEIC",
+    "1-November-1.JPG","1-November-2.JPG","1-November-3.JPG","1-November-4.JPG",
     "2-November-1.JPG","2-November-2.JPG","2-November-3.JPG","2-November-4.JPG",
-    "2-November-5.JPG","2-November-6.PNG","12-November.HEIC","13-November-1.JPG",
+    "2-November-5.JPG","2-November-6.PNG","12-November.JPG","13-November-1.JPG",
     "13-November-2.JPG","15-November.JPG"
   ],
   december: ["4-December.PNG","24-December.PNG"]
