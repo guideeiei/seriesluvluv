@@ -38,13 +38,16 @@ function goHome() {
 
 /* ===== MEMORIES (June → December, หลายรูป) ===== */
 const memories = {
-  june: [],
-  july: [],
-  august: [],
-  september: [],
-  october: [],
-  november: [],
-  december: []
+  june: ["27-June-1.jpg","27-June-2.jpg","27-June-3.jpg"],
+  july: ["4-July.jpg","9-July.jpg","27-July.jpg"],
+  august: ["6-August.jpg","26-August.jpg","27-August.jpg","29-August.jpg","30-August.png"],
+  september: ["1-September.heif","2-September.heif","3-September.jpg"],
+  october: ["8-October.heif","10-October.heif","30-October.heif"],
+  november: ["1-November-1.jpg","1-November-2.heif","1-November-3.jpg","1-November-4.heif"
+            ,"2-November-1.jpg","2-November-2.jpg","2-November-3.jpg","2-November-4.jpg"
+            ,"2-November-5.jpg","2-November-6.png","12-November.heif","13-November-1.jpg"
+            ,"13-November-2.jpg","15-November.jpg"],
+  december: ["4-December.png","24-December.png"]
 };
 
 /*
