@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>For My Love</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="login-page">
 
 <div class="login-container">
-
   <div class="login-left">
     <img src="November/1-November-1.JPG">
   </div>
 
   <div class="login-right">
-    <h2>ใส่วันเกิดบิบี๋ 💗</h2>
+    <h2>ใส่รหัสผ่าน 💗</h2>
 
-    <div id="passwordDisplay">••••••••</div>
+    <div id="passwordDisplay" class="password-box"></div>
 
     <div class="keypad">
       <button onclick="addNum('1')">1</button>
@@ -35,10 +34,8 @@
     </div>
 
     <p id="message"></p>
-
-    <button id="nextBtn" class="next-btn" onclick="goHome()">ไปต่อ 💕</button>
+    <button id="nextBtn" onclick="goHome()">ไปต่อ 💕</button>
   </div>
-
 </div>
 
 <script src="script.js"></script>
