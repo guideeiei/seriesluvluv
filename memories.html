@@ -2,28 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Memories</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Our Memories 📸</h2>
+<div class="container">
+  <h2>Memories 💞</h2>
 
-<div class="months">
-  <button onclick="showMonth('june')">June</button>
-  <button onclick="showMonth('july')">July</button>
-  <button onclick="showMonth('august')">August</button>
-  <button onclick="showMonth('september')">September</button>
-  <button onclick="showMonth('october')">October</button>
-  <button onclick="showMonth('november')">November</button>
-  <button onclick="showMonth('december')">December</button>
+  <div class="months">
+    <button onclick="showMonth('june')">June</button>
+    <button onclick="showMonth('july')">July</button>
+    <button onclick="showMonth('august')">August</button>
+    <button onclick="showMonth('september')">September</button>
+    <button onclick="showMonth('october')">October</button>
+    <button onclick="showMonth('november')">November</button>
+    <button onclick="showMonth('december')">December</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <img id="memoryImg">
+  </div>
+
+  <button onclick="location.href='home.html'">← Home</button>
 </div>
-
-<div class="slider" id="slider">
-  <img id="memoryImg">
-</div>
-
-<button onclick="goHome()">⬅ Back</button>
 
 <script src="script.js"></script>
 </body>
