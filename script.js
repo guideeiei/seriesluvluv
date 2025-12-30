@@ -38,16 +38,16 @@ function goHome() {
 
 /* ===== MEMORIES (June → December, หลายรูป) ===== */
 const memories = {
-  june: ["27-June-1.jpg","27-June-2.jpg","27-June-3.jpg"],
-  july: ["4-July.jpg","9-July.jpg","27-July.jpg"],
-  august: ["6-August.jpg","26-August.jpg","27-August.jpg","29-August.jpg","30-August.png"],
-  september: ["1-September.heif","2-September.heif","3-September.jpg"],
-  october: ["8-October.heif","10-October.heif","30-October.heif"],
-  november: ["1-November-1.jpg","1-November-2.heif","1-November-3.jpg","1-November-4.heif"
-            ,"2-November-1.jpg","2-November-2.jpg","2-November-3.jpg","2-November-4.jpg"
-            ,"2-November-5.jpg","2-November-6.png","12-November.heif","13-November-1.jpg"
-            ,"13-November-2.jpg","15-November.jpg"],
-  december: ["4-December.png","24-December.png"]
+  june: ["27-June-1.JPG","27-June-2.JPG","27-June-3.JPG"],
+  july: ["4-July.JPG","9-July.jpg","27-July.JPG"],
+  august: ["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"],
+  september: ["1-September.HEIC","2-September.HEIC","3-September.JPG"],
+  october: ["8-October.HEIC","10-October.HEIC","30-October.HEIC"],
+  november: ["1-November-1.JPG","1-November-2.HEIC","1-November-3.JPG","1-November-4.HEIC"
+            ,"2-November-1.JPG","2-November-2.JPG","2-November-3.JPG","2-November-4.JPG"
+            ,"2-November-5.JPG","2-November-6.PNG","12-November.HEIC","13-November-1.JPG"
+            ,"13-November-2.JPG","15-November.JPG"],
+  december: ["4-December.PNG","24-December.PNG"]
 };
 
 /*
