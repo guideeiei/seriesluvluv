@@ -1,10 +1,29 @@
-function checkPassword() {
-  const input = document.getElementById("password").value;
-  const correctPassword = "04122541";
+let inputPassword = "";
+const correctPassword = "4122541"; 
+// 4/12/2541 (ไม่มี /)
 
-  if (input === correctPassword) {
-    window.location.href = "success.html";
+function pressKey(num) {
+  if (inputPassword.length < 10) {
+    inputPassword += num;
+    updateDisplay();
+  }
+}
+
+function updateDisplay() {
+  document.getElementById("passwordDisplay").innerText =
+    "•".repeat(inputPassword.length);
+}
+
+function clearPassword() {
+  inputPassword = "";
+  updateDisplay();
+}
+
+function checkPassword() {
+  if (inputPassword === correctPassword) {
+    window.location.href = "home.html";
   } else {
-    document.getElementById("error").innerText = "Wrong password 😢";
+    alert("Wrong password 💔");
+    clearPassword();
   }
 }
