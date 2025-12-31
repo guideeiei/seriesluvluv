@@ -412,4 +412,83 @@ button, .main-btn{
     justify-self:center;
     max-width:65%;
   }
+  /* ==================================================
+   iPHONE FINAL FIX (BASED ON OLD STYLE)
+   ไม่กระทบ iPad
+   ================================================== */
+@media (max-width: 430px){
+
+  /* ===== START PAGE TEXT ===== */
+  .start-content{
+    top:5%;
+    padding:20px 22px;
+    max-width:92%;
+  }
+
+  .start-content h1{
+    font-size:30px;
+    line-height:1.35;        /* 🔴 กันแตกเป็น 6 บรรทัด */
+    max-width:100%;
+  }
+
+  /* ===== PASSWORD PAGE ===== */
+  .login-container{
+    height:100vh;
+    overflow:hidden;        /* 🔴 กันเด้ง */
+  }
+
+  .login-left{
+    height:45vh;
+  }
+
+  .login-right{
+    height:55vh;
+    padding:22px 20px;
+  }
+
+  /* คืนปุ่มให้เหมือนเวอร์ชันเก่า */
+  .keypad button{
+    font-size:20px;
+    padding:14px 0;         /* 🔴 ไม่ลีบ */
+    border-radius:20px;
+  }
+
+  .password-box{
+    font-size:30px;
+    height:44px;
+  }
+
+  #message{
+    min-height:16px;        /* 🔴 กันข้อความดัน layout */
+    font-size:14px;
+  }
+
+  /* ===== MEMORIES ===== */
+  .months{
+    margin-top:6px;         /* 🔴 ขยับทั้งแถวขึ้น */
+    margin-bottom:6px;
+    gap:12px;
+  }
+
+  .months button{
+    height:46px;
+    font-size:16px;
+  }
+
+  .slider{
+    margin-top:8px;
+    height:58vh;
+  }
+
+  /* ===== CALENDAR ===== */
+  .time-box{
+    white-space:nowrap;     /* 🔴 1 บรรทัด */
+    font-size:18px;
+  }
+
+  /* ===== NOTES ===== */
+  .note-intro{
+    margin-top:14px;        /* 🔴 ดึงลงจากขอบบน */
+  }
+}
 }
