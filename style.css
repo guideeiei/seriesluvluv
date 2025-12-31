@@ -723,15 +723,6 @@ body{
   .notes-page{
     padding-bottom:120px; /* เผื่อพื้นที่ปุ่ม */
   }
-
-  /* ปุ่ม back ลอยคงที่ */
-  .back-btn{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:999;
-  }
 }
 /* ==================================
    iPHONE SCROLL + BACK BUTTON FIX
@@ -744,13 +735,24 @@ body{
     overflow-y:auto;
     padding-bottom:130px; /* เผื่อปุ่ม Back */
   }
+/* ==================================
+   iPHONE SCROLL ONLY (NO FLOAT BUTTON)
+   Memories / Calendar / Notes
+   ================================== */
+@media (max-width: 768px){
 
-  /* ทำให้ปุ่ม Back ลอย */
+  /* ให้หน้าเลื่อนได้ */
+  body.center-page{
+    overflow-y:auto;
+    min-height:100vh;
+    padding-bottom:40px; /* เผื่อพื้นที่ปุ่ม Back */
+  }
+
+  /* ปุ่ม Back อยู่ตาม flow ปกติ */
   body.center-page .main-btn{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:999;
+    position:static;
+    margin-top:30px;
+    margin-bottom:20px;
   }
 }
+ 
