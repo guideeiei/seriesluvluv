@@ -706,3 +706,30 @@ body{
     width: 100%;
   }
 }
+/* ===============================
+   iPHONE SCROLL FIX
+   Memories / Calendar / Notes
+   =============================== */
+@media (max-width: 768px){
+
+  /* ให้หน้าหลักเลื่อนได้ */
+  body{
+    overflow-y:auto;
+  }
+
+  /* กันเนื้อหาชนปุ่ม back */
+  .memories-page,
+  .calendar-page,
+  .notes-page{
+    padding-bottom:120px; /* เผื่อพื้นที่ปุ่ม */
+  }
+
+  /* ปุ่ม back ลอยคงที่ */
+  .back-btn{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:999;
+  }
+}
