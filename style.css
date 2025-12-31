@@ -45,14 +45,6 @@ body{
   z-index:2;
 }
 
-/* Rotate text slightly */
-.rotate-text h1{
-  transform: rotate(-3deg);
-  font-size:36px;
-  font-family:'Playfair Display',serif;
-  margin-bottom:20px;
-}
-
 /* Start button styling same as main buttons */
 .start-content .main-btn{
   margin-top:12px;
