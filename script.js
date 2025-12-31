@@ -1,3 +1,8 @@
+/* ===== START PAGE ===== */
+function goToPassword(){
+  document.getElementById("startPage").style.display = "none";
+  document.getElementById("loginPage").style.display = "flex";
+}
 let inputPass="";
 const correctPass="2541";
 
