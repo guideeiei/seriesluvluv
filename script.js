@@ -3,7 +3,7 @@ function goToPassword(){
   document.getElementById("startPage").style.display = "none";
   document.getElementById("loginPage").style.display = "flex";
 
-  document.body.classList.add("password-page"),
+  document.body.classList.add("password-page");
 }
 let inputPass="";
 const correctPass="2541";
