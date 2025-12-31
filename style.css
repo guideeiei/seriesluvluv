@@ -522,7 +522,7 @@ body{
    START PAGE – FIX TEXT
    ========================= */
 .start-content{
-  padding:12px 14px;      /* 🔴 ลด padding */
+  padding:12px 12px;      /* 🔴 ลด padding */
 }
 
 .start-content h1{
