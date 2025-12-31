@@ -10,7 +10,60 @@ body{
   background:#F6C1CC;
   min-height:100vh;
 }
+/* ===== START PAGE ===== */
+.start-page{
+  position:relative;
+  height:100vh;
+  width:100vw;
+  overflow:hidden; /* prevent overflow */
+}
 
+.start-bg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+.start-content{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.35);
+  padding:20px 30px;
+  border-radius:20px;
+  text-align:center;
+  color:white;
+  z-index:2;
+}
+
+/* Rotate text slightly */
+.rotate-text h1{
+  transform: rotate(-3deg);
+  font-size:36px;
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
+}
+
+/* Start button styling same as main buttons */
+.start-content .main-btn{
+  margin-top:12px;
+  font-size:18px;
+  font-weight:600;
+  padding:14px 26px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ff8fb1,#f06292);
+  color:white;
+  box-shadow:0 6px 14px rgba(0,0,0,.2);
+}
 /* ===== BUTTON (ชมพูหวาน) ===== */
 button, .main-btn{
   background:linear-gradient(135deg,#ff8fb1,#f06292);
