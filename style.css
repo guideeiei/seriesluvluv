@@ -437,3 +437,67 @@ html, body{
 }
 
 }
+@media screen and (max-width: 430px){
+
+/* =========================
+   START PAGE – TEXT 2 LINES
+   ========================= */
+.start-content h1{
+  font-size:28px;        /* 🔴 ลดลง */
+  line-height:1.35;
+  max-width:92%;
+}
+
+/* =========================
+   PASSWORD – FIX ALL
+   ========================= */
+
+/* กัน scroll + กันปุ่มหลบ */
+.login-right{
+  height:58vh;
+  padding:16px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+/* ปุ่ม keypad ให้ใหญ่ เหมือนเดิม ไม่ลีบ */
+.keypad button{
+  padding:16px 0;        /* 🔴 ใหญ่ขึ้น */
+  font-size:20px;
+  border-radius:22px;
+}
+
+/* ปุ่ม "ไปต่อ" ให้ติดอยู่ในจอ */
+#nextBtn{
+  margin-top:auto;       /* 🔴 ดันขึ้นอัตโนมัติ */
+  margin-bottom:8px;
+}
+
+/* =========================
+   MEMORIES – SHIFT UP
+   ========================= */
+
+/* ข้อความ + ปุ่มเดือน */
+.center-page h2{
+  margin-top:-8px;
+  margin-bottom:6px;
+}
+
+.months{
+  margin-top:-6px;
+  margin-bottom:4px;
+}
+
+/* รูปขยับขึ้น แต่ไม่ชน back */
+.slider{
+  height:54vh;
+  margin-top:4px;
+}
+
+/* ปุ่ม back เว้นระยะ */
+.main-btn{
+  margin-top:6px;
+}
+
+}
