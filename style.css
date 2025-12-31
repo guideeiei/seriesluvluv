@@ -501,3 +501,75 @@ html, body{
 }
 
 }
+/* ==================================================
+   iPhone ONLY – SAFE FINAL PATCH
+   (ไม่กระทบ iPad)
+   ================================================== */
+@media screen and (max-width: 430px){
+
+/* ===== ALLOW SCROLL ===== */
+body{
+  min-height:auto;
+}
+.center-page,
+.start-page,
+.login-container{
+  height:auto;
+  min-height:100vh;
+}
+
+/* =========================
+   START PAGE – FIX TEXT
+   ========================= */
+.start-content{
+  padding:12px 14px;      /* 🔴 ลด padding */
+}
+
+.start-content h1{
+  font-size:26px;         /* 🔴 ลดขนาด */
+  line-height:1.35;
+  max-width:90%;          /* 🔴 กันแตกหลายบรรทัด */
+  white-space:normal;
+}
+
+/* =========================
+   PASSWORD – REAL BUTTON FIX
+   ========================= */
+.keypad{
+  gap:12px;
+}
+
+.keypad button{
+  font-size:22px;         /* 🔴 ใหญ่ขึ้นจริง */
+  padding:18px 0;         /* 🔴 สูงขึ้น */
+  border-radius:24px;
+}
+
+/* กันปุ่ม “ไปต่อ” หลบ */
+.login-right{
+  padding-bottom:24px;
+}
+
+#nextBtn{
+  margin-top:16px;
+}
+
+/* =========================
+   MEMORIES – CENTER IMAGE
+   ========================= */
+.slider{
+  height:56vh;            /* 🔴 กลางจอ */
+  margin-top:12px;
+  margin-bottom:12px;
+}
+
+.slider img{
+  max-width:88%;
+}
+
+/* ปุ่ม Back ลงล่างอีก */
+.center-page .main-btn{
+  margin-top:14px;
+}
+
+}
