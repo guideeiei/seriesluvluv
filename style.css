@@ -30,9 +30,9 @@ body{
 
 .start-content{
   position:absolute;
-  top:50%;
+  top:20%;              /* 🔴 แก้ตรงนี้ (ยิ่งน้อย ยิ่งสูง) */
   left:50%;
-  transform:translate(-50%,-50%);
+  transform:translateX(-50%);  /* 🔴 แก้จาก -50%,-50% */
   display:flex;
   flex-direction:column;
   justify-content:center;
