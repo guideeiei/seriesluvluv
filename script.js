@@ -35,7 +35,7 @@ const images={
   september:["1-September.jpeg","2-September.jpeg","3-September.jpeg"], // (ไม่ต้องแก้)
   october:["8-October.jpeg","10-October.jpeg","30-October.jpeg"], // (ไม่ต้องแก้)
   november:["1-November-2.jpeg","1-November-4.jpeg","12-November.jpeg","2-November-6.png"], // (ไม่ต้องแก้)
-  december:["1-December.jpeg","5-December.jpeg","12-December.jpeg"] // (ใหม่)
+  december:["4-December.PNG","24-December.PNG"] // (ใหม่)
 };
 
 let currentImages=[],currentIndex=0,currentMonth="";
