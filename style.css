@@ -280,3 +280,63 @@ button, .main-btn{
   left:50%;
   transform:translateX(-50%);
 }
+/* ===== MOBILE FIX (iPhone) ===== */
+@media (max-width: 768px){
+
+  /* ข้อความ */
+  h1{ font-size:28px; }
+  h2{ font-size:24px; }
+  p{ font-size:18px; }
+
+  /* HOME */
+  .menu a{
+    font-size:20px;
+    padding:16px 32px;
+  }
+
+  /* MEMORIES */
+  .months{
+    grid-template-columns:repeat(2,1fr); /* 🔴 2 ต่อแถว */
+  }
+  .slider{
+    height:60vh;
+  }
+
+  /* CALENDAR + NOTES */
+  .gallery,
+  .notes-grid{
+    grid-template-columns:repeat(2,1fr); /* 🔴 จาก 3 → 2 */
+    gap:16px;
+  }
+
+  /* ปุ่ม */
+  button, .main-btn{
+    font-size:20px;
+    padding:16px 30px;
+  }
+}
+/* ===== MOBILE FIX (iPhone) ===== */
+@media (max-width: 768px){
+
+  /* ===== LOGIN PAGE ===== */
+  .login-container{
+    flex-direction:column;
+  }
+
+  .login-left{
+    width:100%;
+    height:40vh;
+  }
+
+  .login-left img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .login-right{
+    width:100%;
+    height:60vh;
+    padding:20px;
+  }
+}
