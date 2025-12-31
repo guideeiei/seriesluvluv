@@ -782,3 +782,63 @@ body{
     display:block;
   }
 }
+/* ==================================
+   iPHONE SCROLL FIX (Password / Memories / Calendar / Notes)
+   ================================== */
+@media (max-width: 768px){
+
+  /* ===== Password Page ===== */
+  body.password-page #loginPage{
+    display:block !important;
+    height:auto !important;
+    min-height:100vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:20px 10px;
+  }
+
+  body.password-page .login-container{
+    flex-direction:column !important;
+    height:auto !important;
+  }
+
+  body.password-page .login-left{
+    width:100%;
+    height:30vh; /* ให้รูปเต็ม ไม่แหว่ง */
+  }
+
+  body.password-page .login-right{
+    width:100%;
+    height:auto;
+    margin-top:10px;
+  }
+
+  /* ===== Memories / Calendar / Notes ===== */
+  body.center-page{
+    display:block !important;
+    height:auto !important;
+    min-height:100vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:10px 0;
+  }
+
+  body.center-page .slider,
+  body.center-page .gallery,
+  body.center-page .notes-grid{
+    margin-bottom:20px;
+  }
+
+  /* ปุ่ม Back อยู่ตาม flow */
+  body.center-page .main-btn{
+    position:static !important;
+    margin:20px auto 20px;
+    display:block;
+  }
+
+  /* Text / Button ปรับขนาดให้พอดี */
+  h1{ font-size:28px !important; }
+  h2{ font-size:22px !important; }
+  p{ font-size:16px !important; }
+  button, .main-btn{ font-size:18px !important; padding:14px 26px !important; }
+}
