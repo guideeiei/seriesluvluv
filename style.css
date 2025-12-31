@@ -204,13 +204,13 @@ button, .main-btn{
   font-family:'Playfair Display',serif;
   font-size:22px;
 }
-/* ===== HOME TITLE FRAME ===== */
+/* ===== HOME DECOR FRAME ===== */
 .home-title-box{
   background:rgba(255,255,255,0.85);
-  padding:18px 26px 22px;
-  border-radius:24px;
+  padding:22px 30px 26px;
+  border-radius:26px;
   box-shadow:0 8px 20px rgba(0,0,0,0.15);
-  margin-bottom:14px; /* ลดช่องว่างล่าง */
+  margin-bottom:18px;
   position:relative;
 }
 
@@ -221,17 +221,25 @@ button, .main-btn{
   color:#e75480;
 }
 
-/* ===== HEART LINK DECORATION ===== */
-.heart-link{
-  margin-top:10px;
+/* decorations */
+.decor{
+  position:absolute;
   font-size:22px;
-  color:#f06292;
-  letter-spacing:2px;
+  opacity:0.9;
 }
 
-/* ลดช่องว่างข้อความรอง */
-.home-sub{
-  margin-top:6px;
-  margin-bottom:20px;
-  font-size:20px;
+.decor.left{
+  top:10px;
+  left:12px;
+}
+
+.decor.right{
+  top:10px;
+  right:12px;
+}
+
+.decor.bottom{
+  bottom:-16px;   /* เว้นช่วงด้านล่าง */
+  left:50%;
+  transform:translateX(-50%);
 }
