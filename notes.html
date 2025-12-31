@@ -3,36 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Notes</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="center-page">
 
-<h1 class="calendar-title">ข้อความถึงเธอ 💕</h1>
+<h2>For You 💌</h2>
 
 <div class="notes-grid">
-  <div class="note-item">
-    <img src="November/1-November-2.jpeg">
-    <button class="main-btn small" onclick="openNote()">อ่านจดหมาย 💌</button>
-  </div>
-
-  <div class="note-item">
-    <img src="November/12-November.jpeg">
-    <button class="main-btn small" onclick="openNote()">อ่านจดหมาย 💌</button>
-  </div>
+  <img src="July/9-July.jpg">
+  <img src="August/26-August.JPG">
+  <img src="November/1-November-2.jpeg">
 </div>
 
-<button class="main-btn back-left" onclick="goHome()">⬅ กลับ</button>
+<button class="main-btn letter-btn" onclick="openNote()">📩 Open Letter</button>
 
-<div id="popup" class="popup">
+<div class="popup" id="popup">
   <div class="popup-content">
-    <p class="letter">
-      From the moment we met in June, to the day we became a couple on November 1st,<br>
-      every moment with you has made me truly happy.<br><br>
+    <p>
+      From the moment we met in June,  
+      to the day we became a couple on November 1st,  
+      every moment with you has made me truly happy.  
+      <br><br>
       Thank you for being my safe place 💕
     </p>
-    <button class="main-btn" onclick="closeNote()">ปิด</button>
+    <button class="main-btn" onclick="closeNote()">Close</button>
   </div>
 </div>
+
+<button class="main-btn" onclick="goHome()">⬅ Back</button>
 
 <script src="script.js"></script>
 </body>
