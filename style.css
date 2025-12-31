@@ -145,6 +145,19 @@ button, .main-btn{
   max-height:100%;
   border-radius:20px;
 }
+/* ===== MEMORIES MONTH LAYOUT ===== */
+.months.top{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.months.bottom{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
 
 /* ===== CALENDAR ===== */
 .calendar-title{
@@ -183,6 +196,17 @@ button, .main-btn{
 }
 .letter-btn{
   margin-top:16px;
+}
+/* ===== NOTES INTRO BOX ===== */
+.note-intro{
+  background:rgba(255,255,255,0.9);
+  padding:14px 26px;
+  border-radius:22px;
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:#e75480;
+  margin-bottom:20px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
 }
 
 /* ===== POPUP ===== */
