@@ -1,9 +1,8 @@
-/* ===== PASSWORD ===== */
 let inputPass="";
-const correctPass="04122541";
+const correctPass="2541";
 
 function addNum(num){
-  if(inputPass.length<8){
+  if(inputPass.length<4){
     inputPass+=num;
     updateDisplay();
   }
@@ -19,7 +18,7 @@ function checkPassword(){
   const msg=document.getElementById("message");
   const next=document.getElementById("nextBtn");
   if(inputPass===correctPass){
-    msg.innerText="เก่งมากคั้บบิบี๋ 🥰🥰";
+    msg.innerText="เก่งมากคั้บบิบี๋ 🥰";
     next.style.display="block";
   }else{
     msg.innerText="รหัสยังไม่ถูกนะ 🥺";
@@ -33,15 +32,9 @@ const images={
   june:["27-June-1.JPG","27-June-2.JPG","27-June-3.JPG"],
   july:["4-July.JPG","9-July.jpg","27-July.JPG"],
   august:["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"],
-  september:["1-September.JPG","2-September.JPG","3-September.JPG"],
-  october:["8-October.JPG","10-October.JPG","30-October.JPG"],
-  november:[
-    "1-November-1.JPG","1-November-2.JPG","1-November-3.JPG","1-November-4.JPG",
-    "2-November-1.JPG","2-November-2.JPG","2-November-3.JPG","2-November-4.JPG",
-    "2-November-5.JPG","2-November-6.PNG","12-November.JPG",
-    "13-November-1.JPG","13-November-2.JPG","15-November.JPG"
-  ],
-  december:["4-December.PNG","24-December.PNG"]
+  september:["1-September.jpeg","2-September.jpeg","3-September.jpeg"],
+  october:["8-October.jpeg","10-October.jpeg","30-October.jpeg"],
+  november:["1-November-2.jpeg","1-November-4.jpeg","12-November.jpeg","2-November-6.png"]
 };
 
 let currentImages=[],currentIndex=0,currentMonth="";
