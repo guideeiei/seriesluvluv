@@ -461,4 +461,39 @@ button, .main-btn{
     max-width:60%;
   }
 
+}/* ===== START PAGE TEXT FIX ===== */
+.start-content{
+  max-width:92%;
+}
+
+.start-content h1{
+  font-size:26px;
+  line-height:1.25;
+  white-space:normal;
+}
+/* ===== MEMORIES MONTH FULL WIDTH ===== */
+.months{
+  width:100%;
+  max-width:420px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.months button{
+  font-size:14px;
+  padding:10px 0;
+}
+/* ===== MEMORIES IMAGE SIZE (PHONE SAFE) ===== */
+.slider{
+  height:52svh;
+}
+
+.slider img{
+  width:auto;
+  max-width:80vw;
+  aspect-ratio:3 / 4;
+  object-fit:cover;
+  border-radius:20px;
 }
