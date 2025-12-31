@@ -755,4 +755,30 @@ body{
     margin-bottom:20px;
   }
 }
- 
+/* ==================================
+   iPHONE FORCE SCROLL FIX
+   (Memories / Calendar / Notes)
+   ================================== */
+@media (max-width: 768px){
+
+  /* ปลดล็อก scroll */
+  body,
+  body.center-page{
+    height:auto !important;
+    min-height:100vh;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* ยกเลิก flex-center ที่บังคับจอ */
+  body.center-page{
+    display:block !important;
+  }
+
+  /* ปุ่ม Back อยู่ตาม flow */
+  body.center-page .main-btn{
+    position:static !important;
+    margin:40px auto 20px;
+    display:block;
+  }
+}
