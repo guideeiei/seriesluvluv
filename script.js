@@ -27,14 +27,15 @@ function checkPassword(){
 }
 function goHome(){location.href="home.html";}
 
-/* ===== MEMORIES ===== */
+/* MEMORIES */
 const images={
-  june:["27-June-1.JPG","27-June-2.JPG","27-June-3.JPG"],
-  july:["4-July.JPG","9-July.jpg","27-July.JPG"],
-  august:["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"],
-  september:["1-September.jpeg","2-September.jpeg","3-September.jpeg"],
-  october:["8-October.jpeg","10-October.jpeg","30-October.jpeg"],
-  november:["1-November-2.jpeg","1-November-4.jpeg","12-November.jpeg","2-November-6.png"]
+  june:["27-June-1.JPG","27-June-2.JPG","27-June-3.JPG"], // (ไม่ต้องแก้)
+  july:["4-July.JPG","9-July.jpg","27-July.JPG"], // (ไม่ต้องแก้)
+  august:["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"], // (ไม่ต้องแก้)
+  september:["1-September.jpeg","2-September.jpeg","3-September.jpeg"], // (ไม่ต้องแก้)
+  october:["8-October.jpeg","10-October.jpeg","30-October.jpeg"], // (ไม่ต้องแก้)
+  november:["1-November-2.jpeg","1-November-4.jpeg","12-November.jpeg","2-November-6.png"], // (ไม่ต้องแก้)
+  december:["1-December.jpeg","5-December.jpeg","12-December.jpeg"] // (ใหม่)
 };
 
 let currentImages=[],currentIndex=0,currentMonth="";
