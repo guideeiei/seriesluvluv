@@ -39,7 +39,9 @@ const images={
   august:["6-August.JPG","26-August.JPG","27-August.JPG","29-August.JPG","30-August.PNG"], // (ไม่ต้องแก้)
   september:["1-September.jpeg","2-September.jpeg","3-September.jpeg"], // (ไม่ต้องแก้)
   october:["8-October.jpeg","10-October.jpeg","30-October.jpeg"], // (ไม่ต้องแก้)
-  november:["1-November-2.jpeg","1-November-4.jpeg","12-November.jpeg","2-November-6.png"], // (ไม่ต้องแก้)
+  november:["1-November-1.JPG","1-November-2.jpeg","1-November-3.JPG","1-November-4.jpeg","12-November.jpeg",
+            "13-November-1.JPG","13-November-2.JPG","15-November.JPG","2-November-1.JPG","2-November-2.JPG",
+           "2-November-3.JPG","2-November-4.JPG","2-November-5.JPG","2-November-6.png"], // (ไม่ต้องแก้)
   december:["4-December.PNG","24-December.PNG"] // (ใหม่)
 };
 
