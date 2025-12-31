@@ -733,3 +733,24 @@ body{
     z-index:999;
   }
 }
+/* ==================================
+   iPHONE SCROLL + BACK BUTTON FIX
+   Calendar / Memories / Notes
+   ================================== */
+@media (max-width: 768px){
+
+  /* ให้หน้าเลื่อนได้ */
+  body.center-page{
+    overflow-y:auto;
+    padding-bottom:130px; /* เผื่อปุ่ม Back */
+  }
+
+  /* ทำให้ปุ่ม Back ลอย */
+  body.center-page .main-btn{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:999;
+  }
+}
