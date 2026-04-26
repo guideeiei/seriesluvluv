@@ -5,16 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Home 🤍</title>
 <link rel="stylesheet" href="style.css">
-<style>
-  /* YouTube embed ซ่อนอยู่ แต่เสียงออก */
-  .yt-hidden {
-    position: fixed;
-    width: 1px; height: 1px;
-    top: -9999px; left: -9999px;
-    opacity: 0;
-    pointer-events: none;
-  }
-</style>
+
 </head>
 <body>
 
@@ -24,20 +15,16 @@
 <div class="music-bar" id="musicBar">
   <span class="music-note">♪</span>
   <div class="music-info">
-    <div class="music-title">เพลงรัก</div>
+    <div class="music-title">รัก</div>
     <div class="music-artist">Three Man Down</div>
   </div>
   <button class="music-btn" id="musicToggle" onclick="toggleMusic()" title="Play / Pause">▶</button>
 </div>
 
-<!-- YouTube iframe (ซ่อน — เล่นแค่เสียง) -->
-<iframe
-  id="ytPlayer"
-  class="yt-hidden"
-  src="https://www.youtube.com/watch?v=OYPiXBIgvJ8&list=RDOYPiXBIgvJ8&start_radio=1"
-  allow="autoplay; encrypted-media"
-  allowfullscreen>
-</iframe>
+<!-- Background music -->
+<audio id="bgMusic" loop preload="none">
+  <source src="rak.mp3" type="audio/mpeg">
+</audio>
 
 <div class="page-wrapper" style="padding-top: 56px;">
 
@@ -105,17 +92,17 @@
     <div class="card fade-up" style="display:flex; flex-direction:column; gap:14px;">
       <div style="display:flex; align-items:flex-start; gap:12px;">
         <span style="font-size:18px; flex-shrink:0; margin-top:1px;">🌸</span>
-        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;"> appearance especially แก้ม!! ♡</p>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบได้เลยค่ะ ♡</p>
       </div>
       <div style="height:1px; background:var(--border);"></div>
       <div style="display:flex; align-items:flex-start; gap:12px;">
         <span style="font-size:18px; flex-shrink:0; margin-top:1px;">✨</span>
-        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;"> good manner, kind, sweet heart ♡</p>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบได้เลยค่ะ ♡</p>
       </div>
       <div style="height:1px; background:var(--border);"></div>
       <div style="display:flex; align-items:flex-start; gap:12px;">
         <span style="font-size:18px; flex-shrink:0; margin-top:1px;">🤍</span>
-        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;"> actually love everything about bibii loeyy ♡</p>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบได้เลยค่ะ ♡</p>
       </div>
     </div>
 
@@ -155,30 +142,30 @@
   }
   updateCounter();
 
-  // YouTube music toggle via postMessage
-  const btn = document.getElementById('musicToggle');
+  // Music toggle
+  const audio = document.getElementById('bgMusic');
+  const btn   = document.getElementById('musicToggle');
   let playing = false;
 
   function toggleMusic() {
-    const frame = document.getElementById('ytPlayer');
     if (!playing) {
-      frame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      audio.play();
       btn.textContent = '⏸';
       playing = true;
     } else {
-      frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      audio.pause();
       btn.textContent = '▶';
       playing = false;
     }
   }
 
-  // Auto-play on first tap anywhere (browser autoplay policy)
+  // Auto-play on first tap anywhere
   document.addEventListener('click', function tryPlay() {
     if (!playing) {
-      const frame = document.getElementById('ytPlayer');
-      frame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      btn.textContent = '⏸';
-      playing = true;
+      audio.play().then(() => {
+        btn.textContent = '⏸';
+        playing = true;
+      }).catch(() => {});
     }
     document.removeEventListener('click', tryPlay);
   }, { once: true });
