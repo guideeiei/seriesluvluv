@@ -1,31 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Home 🤍</title>
 <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="center-page">
+<!-- FLOATING HEARTS -->
+<div class="hearts-bg" id="heartsBg"></div>
 
-<div class="home-title-box">
-  <span class="decor left">🌸💗</span>
-  <span class="decor right">💗🌸</span>
-
-  <h1> Happy New Year kub Bibii 🥰🥰</h1>
-
-  <span class="decor bottom">🌷 💕 🌷</span>
-</div>
-<p class="home-sub">เลือกได้เลยนะที่รัก 💕</p>
-
-<div class="menu">
-  <a href="memories.html">📸 Memories</a>
-  <a href="calendar.html">📆 Calendar</a>
-  <a href="notes.html">💌 Notes</a>
+<!-- MUSIC BAR -->
+<div class="music-bar" id="musicBar">
+  <span class="music-note">♪</span>
+  <div class="music-info">
+    <div class="music-title">รัก</div>
+    <div class="music-artist">Three Man Down</div>
+  </div>
+  <button class="music-btn" id="musicToggle" onclick="toggleMusic()" title="Play / Pause">▶</button>
 </div>
 
+<!-- AUDIO (add your file or YouTube embed as fallback) -->
+<audio id="bgMusic" loop preload="none">
+  <!-- drop rak-three-man-down.mp3 into your repo root and uncomment: -->
+  <!-- <source src="rak-three-man-down.mp3" type="audio/mpeg"> -->
+</audio>
+
+<div class="page-wrapper" style="padding-top: 56px;">
+
+  <!-- HEADER -->
+  <div class="page-top fade-up">
+    <p class="page-eyebrow">hey love 🌸</p>
+    <h1 class="page-title">Hello,<br>my Bibii</h1>
+  </div>
+
+  <!-- LOVE COUNTER -->
+  <div class="counter-strip fade-up fade-up-1">
+    <div class="counter-cell">
+      <div class="counter-num" id="cntDays">—</div>
+      <div class="counter-label">Days</div>
+    </div>
+    <div class="counter-cell">
+      <div class="counter-num" id="cntMonths">—</div>
+      <div class="counter-label">Months</div>
+    </div>
+    <div class="counter-cell">
+      <div class="counter-num">∞</div>
+      <div class="counter-label">Love</div>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="menu-section">
+
+    <p class="menu-section-label fade-up fade-up-2">New this update</p>
+    <div class="menu-grid">
+      <a class="menu-tile featured fade-up fade-up-2" href="milestone.html">
+        <div class="tile-icon">✨</div>
+        <div class="tile-name">6-Month Milestone <span class="badge-new">NEW</span></div>
+        <div class="tile-desc">Every chapter we've written</div>
+      </a>
+      <a class="menu-tile fade-up fade-up-3" href="letter.html">
+        <div class="tile-icon">💌</div>
+        <div class="tile-name">Love Letter <span class="badge-new">NEW</span></div>
+        <div class="tile-desc">Words from the heart</div>
+      </a>
+      <a class="menu-tile fade-up fade-up-3" href="video.html">
+        <div class="tile-icon">🎬</div>
+        <div class="tile-name">Videos <span class="badge-new">NEW</span></div>
+        <div class="tile-desc">Our favorite clips</div>
+      </a>
+    </div>
+
+    <p class="menu-section-label fade-up fade-up-4">Your favorites</p>
+    <div class="menu-grid">
+      <a class="menu-tile fade-up fade-up-4" href="memories.html">
+        <div class="tile-icon">📸</div>
+        <div class="tile-name">Memories</div>
+        <div class="tile-desc">Every photo of us</div>
+      </a>
+      <a class="menu-tile fade-up fade-up-4" href="calendar.html">
+        <div class="tile-icon">📆</div>
+        <div class="tile-name">Calendar</div>
+        <div class="tile-desc">Special dates</div>
+      </a>
+      <a class="menu-tile fade-up fade-up-5" href="notes.html" style="grid-column: span 2;">
+        <div class="tile-icon">🗒️</div>
+        <div class="tile-name">Notes</div>
+        <div class="tile-desc">Little things I want to tell you</div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- NAV BAR -->
+<nav class="nav-bar">
+  <a class="nav-item active" href="home.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </a>
+  <a class="nav-item" href="memories.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    Memories
+  </a>
+  <a class="nav-item" href="milestone.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Milestone
+  </a>
+  <a class="nav-item" href="letter.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Letter
+  </a>
+</nav>
+
+<script src="script.js"></script>
+<script>
+  // Love counter — set your anniversary start date here (YYYY, MM-1, DD)
+  const START = new Date(2024, 10, 1); // Nov 1 2024 — adjust!
+  function updateCounter() {
+    const now = new Date();
+    const diff = now - START;
+    const days = Math.floor(diff / 86400000);
+    const months = Math.floor(days / 30.44);
+    document.getElementById('cntDays').textContent = days;
+    document.getElementById('cntMonths').textContent = months;
+  }
+  updateCounter();
+
+  // Music toggle
+  const audio = document.getElementById('bgMusic');
+  const btn   = document.getElementById('musicToggle');
+  function toggleMusic() {
+    if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
+    else { audio.pause(); btn.textContent = '▶'; }
+  }
+  // Auto-play on first tap (browser policy)
+  document.addEventListener('click', function tryPlay() {
+    if (audio.src && audio.paused) { audio.play().then(() => { btn.textContent = '⏸'; }); }
+    document.removeEventListener('click', tryPlay);
+  }, { once: true });
+</script>
 </body>
 </html>
