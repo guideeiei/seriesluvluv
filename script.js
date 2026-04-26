@@ -33,7 +33,7 @@ function goToLock() {
 
 /* ── PASSWORD / PIN ── */
 let pin = '';
-const CORRECT = '2002'; // ← change to her birth year
+const CORRECT = '2541'; // ← change to her birth year
 
 function addNum(n) {
   if (pin.length >= 4) return;
