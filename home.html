@@ -8,10 +8,8 @@
 </head>
 <body>
 
-<!-- FLOATING HEARTS -->
 <div class="hearts-bg" id="heartsBg"></div>
 
-<!-- MUSIC BAR -->
 <div class="music-bar" id="musicBar">
   <span class="music-note">♪</span>
   <div class="music-info">
@@ -21,21 +19,17 @@
   <button class="music-btn" id="musicToggle" onclick="toggleMusic()" title="Play / Pause">▶</button>
 </div>
 
-<!-- AUDIO (add your file or YouTube embed as fallback) -->
 <audio id="bgMusic" loop preload="none">
-  <!-- drop rak-three-man-down.mp3 into your repo root and uncomment: -->
   <!-- <source src="rak-three-man-down.mp3" type="audio/mpeg"> -->
 </audio>
 
 <div class="page-wrapper" style="padding-top: 56px;">
 
-  <!-- HEADER -->
   <div class="page-top fade-up">
     <p class="page-eyebrow">hey love 🌸</p>
     <h1 class="page-title">Hello,<br>my Bibii</h1>
   </div>
 
-  <!-- LOVE COUNTER -->
   <div class="counter-strip fade-up fade-up-1">
     <div class="counter-cell">
       <div class="counter-num" id="cntDays">—</div>
@@ -51,7 +45,6 @@
     </div>
   </div>
 
-  <!-- MENU -->
   <div class="menu-section">
 
     <p class="menu-section-label fade-up fade-up-2">New this update</p>
@@ -82,10 +75,36 @@
       </a>
     </div>
 
+    <!-- QUOTE -->
+    <div class="card-soft fade-up fade-up-5" style="margin-top:20px; text-align:center;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text-dark); line-height:1.55; font-style:italic;">
+        "In all the world,<br>there is no heart for me like yours."
+      </p>
+      <p style="font-size:11px; color:var(--text-light); margin-top:10px; letter-spacing:0.06em;">— Maya Angelou</p>
+    </div>
+
+    <!-- LITTLE THINGS — เขียนเองได้เลย -->
+    <p class="menu-section-label fade-up" style="margin-top:20px;">Little things I love about you</p>
+    <div class="card fade-up" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <span style="font-size:18px; flex-shrink:0; margin-top:1px;">🌸</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบเกี่ยวกับเธอได้เลยค่ะ ♡</p>
+      </div>
+      <div style="height:1px; background:var(--border);"></div>
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <span style="font-size:18px; flex-shrink:0; margin-top:1px;">✨</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบเกี่ยวกับเธอได้เลยค่ะ ♡</p>
+      </div>
+      <div style="height:1px; background:var(--border);"></div>
+      <div style="display:flex; align-items:flex-start; gap:12px;">
+        <span style="font-size:18px; flex-shrink:0; margin-top:1px;">🤍</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.6;">เขียนสิ่งที่ชอบเกี่ยวกับเธอได้เลยค่ะ ♡</p>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- NAV BAR -->
 <nav class="nav-bar">
   <a class="nav-item active" href="home.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -107,28 +126,26 @@
 
 <script src="script.js"></script>
 <script>
-  // Love counter — set your anniversary start date here (YYYY, MM-1, DD)
-  const START = new Date(2025, 10, 1); // Nov 1 2024 — adjust!
+  // แก้จาก 2025 → 2024 (Nov 1, 2024)
+  const START = new Date(2025, 10, 1);
   function updateCounter() {
-    const now = new Date();
+    const now  = new Date();
     const diff = now - START;
     const days = Math.floor(diff / 86400000);
     const months = Math.floor(days / 30.44);
-    document.getElementById('cntDays').textContent = days;
+    document.getElementById('cntDays').textContent   = days;
     document.getElementById('cntMonths').textContent = months;
   }
   updateCounter();
 
-  // Music toggle
   const audio = document.getElementById('bgMusic');
   const btn   = document.getElementById('musicToggle');
   function toggleMusic() {
     if (audio.paused) { audio.play(); btn.textContent = '⏸'; }
     else { audio.pause(); btn.textContent = '▶'; }
   }
-  // Auto-play on first tap (browser policy)
   document.addEventListener('click', function tryPlay() {
-    if (audio.src && audio.paused) { audio.play().then(() => { btn.textContent = '⏸'; }); }
+    if (audio.src && audio.paused) audio.play().then(() => { btn.textContent = '⏸'; });
     document.removeEventListener('click', tryPlay);
   }, { once: true });
 </script>
