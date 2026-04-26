@@ -4,133 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Memories 📸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  body { background: #000; overflow: hidden; }
+  body::before { display: none; }
+
+  .story-viewer {
+    position: fixed;
+    inset: 0;
+    background: #111;
+    z-index: 10;
+    touch-action: pan-y;
+  }
+
+  /* progress bars */
+  .progress-bar-row {
+    position: absolute;
+    top: max(14px, env(safe-area-inset-top));
+    left: 12px; right: 12px;
+    display: flex;
+    gap: 4px;
+    z-index: 30;
+  }
+  .prog-seg {
+    flex: 1;
+    height: 2.5px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.28);
+    overflow: hidden;
+    min-width: 0;
+  }
+  .prog-fill {
+    height: 100%;
+    background: white;
+    width: 0%;
+    transition: none;
+  }
+  .prog-fill.done { width: 100%; }
+  .prog-fill.active { transition: width linear; }
+
+  /* top bar */
+  .story-topbar {
+    position: absolute;
+    top: max(26px, calc(env(safe-area-inset-top) + 12px));
+    left: 12px; right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 30;
+    margin-top: 10px;
+  }
+  .story-month-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
+  .story-close {
+    color: rgba(255,255,255,0.85);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    text-decoration: none;
+    padding: 4px 8px;
+  }
+
+  /* photo fill */
+  .story-photo-wrap {
+    position: absolute;
+    inset: 0;
+    background: #0d0408;
+  }
+  .story-photo-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: opacity 0.3s ease;
+  }
+
+  /* gradient overlay */
+  .story-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.3) 0%,
+      transparent 28%,
+      transparent 58%,
+      rgba(0,0,0,0.6) 100%
+    );
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  /* caption */
+  .story-caption {
+    position: absolute;
+    bottom: max(100px, calc(env(safe-area-inset-bottom) + 90px));
+    left: 20px; right: 20px;
+    z-index: 30;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .story-caption.hide { transform: translateY(10px); opacity: 0; }
+  .cap-month {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 4px;
+  }
+  .cap-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.3;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.5);
+  }
+  .cap-counter {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
+  }
+
+  /* tap zones */
+  .tap-left, .tap-right {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 38%;
+    z-index: 25;
+    cursor: pointer;
+  }
+  .tap-left  { left: 0; }
+  .tap-right { right: 0; }
+
+  /* month picker */
+  .month-select-btn {
+    position: absolute;
+    bottom: max(56px, calc(env(safe-area-inset-bottom) + 48px));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 35;
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 50px;
+    padding: 7px 16px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .month-drawer {
+    position: absolute;
+    bottom: max(106px, calc(env(safe-area-inset-bottom) + 96px));
+    left: 50%;
+    transform: translateX(-50%) scaleY(0.85);
+    transform-origin: bottom center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 40;
+    background: rgba(18,6,12,0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 20px;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 280px;
+    justify-content: center;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .month-drawer.open {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+    pointer-events: auto;
+  }
+  .drawer-pill {
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    background: transparent;
+  }
+  .drawer-pill.active-month,
+  .drawer-pill:active {
+    background: rgba(232,120,154,0.4);
+    border-color: rgba(232,120,154,0.5);
+    color: white;
+  }
+
+  /* placeholder */
+  .story-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #1a0810 0%, #2a0f1a 100%);
+    font-size: 52px;
+    gap: 10px;
+  }
+  .story-placeholder p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+</style>
 </head>
 <body>
 
-<div class="hearts-bg" id="heartsBg"></div>
+<div class="story-viewer" id="storyViewer">
 
-<div class="page-wrapper">
+  <div class="progress-bar-row" id="progressRow"></div>
 
-  <div class="memories-header fade-up">
-    <p class="page-eyebrow">every moment</p>
-    <h1 class="page-title">Memories 📸</h1>
+  <div class="story-topbar">
+    <div class="story-month-label" id="storyMonthLabel"></div>
+    <a class="story-close" href="home.html">✕</a>
   </div>
 
-  <!-- MONTH FILTER TABS -->
-  <div class="month-tabs fade-up fade-up-1">
-    <span class="month-pill active" onclick="showMonth('all', this)">All</span>
-    <span class="month-pill" onclick="showMonth('november', this)">November</span>
-    <span class="month-pill" onclick="showMonth('december', this)">December</span>
-    <span class="month-pill" onclick="showMonth('january', this)">January</span>
-    <span class="month-pill" onclick="showMonth('february', this)">February</span>
-    <span class="month-pill" onclick="showMonth('march', this)">March</span>
-    <span class="month-pill" onclick="showMonth('april', this)">April</span>
-    <span class="month-pill" onclick="showMonth('may', this)">May</span>
+  <div class="story-photo-wrap" id="photoWrap">
+    <div class="story-placeholder" id="placeholder"><span>📸</span><p>Add your photos</p></div>
+    <img id="storyImg" src="" alt="" style="opacity:0;"
+         onload="this.style.opacity=1; document.getElementById('placeholder').style.display='none';"
+         onerror="this.style.opacity=0; document.getElementById('placeholder').style.display='flex';">
   </div>
 
-  <!-- ── NOVEMBER ── -->
-  <div class="month-group fade-up fade-up-2" data-month="november">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">November</p>
-    <div class="photo-grid">
-      <!-- Large hero photo -->
-      <div class="photo-cell large">
-        <img src="nov/2-November-1.JPG" alt="November" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <!-- Add your November photos below — copy the photo-cell block for each one -->
-      <div class="photo-cell">
-        <img src="nov/1-November-1.JPG" alt="" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell">
-        <img src="nov/1-November-2.jpeg" alt="" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell">
-        <img src="nov/9-July.jpg" alt="" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell">
-        <img src="nov/12-November.jpeg" alt="" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <!-- Add more: <div class="photo-cell"><img src="nov/YOUR.jpg"></div> -->
-    </div>
+  <div class="story-overlay"></div>
+
+  <div class="story-caption" id="storyCaption">
+    <div class="cap-month" id="capMonth"></div>
+    <div class="cap-text"  id="capText"></div>
+    <div class="cap-counter" id="capCounter"></div>
   </div>
 
-  <!-- ── DECEMBER ── -->
-  <div class="month-group fade-up fade-up-2" data-month="december" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">December</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="dec/YOUR-HERO.jpg" alt="December" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <!-- Add December photos here -->
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
-  </div>
+  <div class="tap-left"  onclick="prevPhoto()"></div>
+  <div class="tap-right" onclick="nextPhoto()"></div>
 
-  <!-- ── JANUARY ── -->
-  <div class="month-group fade-up fade-up-3" data-month="january" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">January</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="jan/YOUR-HERO.jpg" alt="January" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
-  </div>
-
-  <!-- ── FEBRUARY ── -->
-  <div class="month-group fade-up fade-up-3" data-month="february" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">February</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="feb/YOUR-HERO.jpg" alt="February" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
-  </div>
-
-  <!-- ── MARCH ── -->
-  <div class="month-group fade-up fade-up-4" data-month="march" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">March</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="mar/YOUR-HERO.jpg" alt="March" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
-  </div>
-
-  <!-- ── APRIL ── -->
-  <div class="month-group fade-up fade-up-4" data-month="april" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">April</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="apr/YOUR-HERO.jpg" alt="April" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
-  </div>
-
-  <!-- ── MAY ── -->
-  <div class="month-group fade-up fade-up-5" data-month="may" style="margin-top: 24px;">
-    <p class="menu-section-label" style="padding: 0 20px; margin-bottom: 8px;">May 🎀</p>
-    <div class="photo-grid">
-      <div class="photo-cell large">
-        <img src="may/YOUR-HERO.jpg" alt="May" onerror="this.parentElement.innerHTML='<div class=photo-placeholder>📸</div>'">
-      </div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-      <div class="photo-cell"><div class="photo-placeholder">📸</div></div>
-    </div>
+  <!-- month picker — sits above nav -->
+  <button class="month-select-btn" id="monthSelectBtn" onclick="toggleDrawer()">
+    <span id="monthBtnLabel">All months</span> ▾
+  </button>
+  <div class="month-drawer" id="monthDrawer">
+    <div class="drawer-pill active-month" onclick="jumpMonth('all',this)">All</div>
+    <div class="drawer-pill" onclick="jumpMonth('nov',this)">November</div>
+    <div class="drawer-pill" onclick="jumpMonth('dec',this)">December</div>
+    <div class="drawer-pill" onclick="jumpMonth('jan',this)">January</div>
+    <div class="drawer-pill" onclick="jumpMonth('feb',this)">February</div>
+    <div class="drawer-pill" onclick="jumpMonth('mar',this)">March</div>
+    <div class="drawer-pill" onclick="jumpMonth('apr',this)">April</div>
+    <div class="drawer-pill" onclick="jumpMonth('may',this)">May 🎀</div>
   </div>
 
 </div>
 
-<!-- NAV BAR -->
-<nav class="nav-bar">
+<!-- NAV BAR (reuse home style) -->
+<nav class="nav-bar" style="z-index:50;">
   <a class="nav-item" href="home.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     Home
@@ -149,15 +300,151 @@
   </a>
 </nav>
 
-<script src="script.js"></script>
 <script>
-function showMonth(month, el) {
-  document.querySelectorAll('.month-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  document.querySelectorAll('.month-group').forEach(g => {
-    g.style.display = (month === 'all' || g.dataset.month === month) ? 'block' : 'none';
+/* =====================================================
+   PHOTOS CONFIG
+   เพิ่มรูปได้เลยค่า format: { src: 'folder/file.jpg', caption: 'ข้อความ', month: 'nov' }
+   caption ไม่อยากใส่ก็ปล่อยว่างไว้ ''
+   ===================================================== */
+const PHOTOS = [
+  // ── NOVEMBER ──
+  { src: 'nov/2-November-1.JPG',  caption: '', month: 'nov' },
+  { src: 'nov/1-November-1.JPG',  caption: '', month: 'nov' },
+  { src: 'nov/1-November-2.jpeg', caption: '', month: 'nov' },
+  { src: 'nov/12-November.jpeg',  caption: '', month: 'nov' },
+  // { src: 'nov/YOUR.jpg', caption: '', month: 'nov' },
+
+  // ── DECEMBER ──
+  // { src: 'dec/YOUR.jpg', caption: '', month: 'dec' },
+
+  // ── JANUARY ──
+  // { src: 'jan/YOUR.jpg', caption: '', month: 'jan' },
+
+  // ── FEBRUARY ──
+  // { src: 'feb/YOUR.jpg', caption: '', month: 'feb' },
+
+  // ── MARCH ──
+  // { src: 'mar/YOUR.jpg', caption: '', month: 'mar' },
+
+  // ── APRIL ──
+  // { src: 'apr/YOUR.jpg', caption: '', month: 'apr' },
+
+  // ── MAY ──
+  // { src: 'may/YOUR.jpg', caption: '6 months ♡', month: 'may' },
+];
+
+const MONTH_NAMES = {
+  nov:'November', dec:'December', jan:'January',
+  feb:'February', mar:'March',    apr:'April',   may:'May 🎀'
+};
+
+let current  = 0;
+let filtered = [...PHOTOS];
+let autoTimer = null;
+const AUTO_MS = 5000;
+
+function buildBars() {
+  const row = document.getElementById('progressRow');
+  row.innerHTML = '';
+  filtered.forEach((_, i) => {
+    const seg = document.createElement('div');
+    seg.className = 'prog-seg';
+    const fill = document.createElement('div');
+    fill.className = 'prog-fill';
+    fill.id = 'fill-' + i;
+    seg.appendChild(fill);
+    row.appendChild(seg);
   });
 }
+
+function showPhoto(idx) {
+  if (!filtered.length) return;
+  idx = Math.max(0, Math.min(idx, filtered.length - 1));
+  current = idx;
+  const p = filtered[idx];
+
+  const img = document.getElementById('storyImg');
+  img.style.opacity = 0;
+  img.src = p.src;
+
+  document.getElementById('capMonth').textContent       = MONTH_NAMES[p.month] || p.month;
+  document.getElementById('capText').textContent        = p.caption || '';
+  document.getElementById('storyMonthLabel').textContent= MONTH_NAMES[p.month] || p.month;
+  document.getElementById('capCounter').textContent     = (idx + 1) + ' / ' + filtered.length;
+  document.getElementById('storyCaption').classList.toggle('hide', !p.caption);
+
+  // update bars
+  filtered.forEach((_, i) => {
+    const f = document.getElementById('fill-' + i);
+    if (!f) return;
+    f.style.transition = 'none';
+    f.style.width = i < idx ? '100%' : '0%';
+    f.className = 'prog-fill' + (i < idx ? ' done' : '');
+  });
+
+  clearTimeout(autoTimer);
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const f = document.getElementById('fill-' + idx);
+    if (f) {
+      f.className = 'prog-fill active';
+      f.style.transition = 'width ' + AUTO_MS + 'ms linear';
+      f.style.width = '100%';
+    }
+  }));
+  autoTimer = setTimeout(nextPhoto, AUTO_MS);
+}
+
+function nextPhoto() {
+  if (current < filtered.length - 1) showPhoto(current + 1);
+  else { clearTimeout(autoTimer); }
+}
+function prevPhoto() {
+  if (current > 0) showPhoto(current - 1);
+}
+
+function jumpMonth(month, el) {
+  document.querySelectorAll('.drawer-pill').forEach(d => d.classList.remove('active-month'));
+  el.classList.add('active-month');
+  const label = month === 'all' ? 'All months' : MONTH_NAMES[month];
+  document.getElementById('monthBtnLabel').textContent = label;
+  filtered = month === 'all' ? [...PHOTOS] : PHOTOS.filter(p => p.month === month);
+  buildBars();
+  showPhoto(0);
+  document.getElementById('monthDrawer').classList.remove('open');
+}
+
+function toggleDrawer() {
+  document.getElementById('monthDrawer').classList.toggle('open');
+}
+
+// close drawer on outside tap
+document.getElementById('storyViewer').addEventListener('click', e => {
+  const drawer = document.getElementById('monthDrawer');
+  const btn    = document.getElementById('monthSelectBtn');
+  if (!drawer.contains(e.target) && !btn.contains(e.target)) {
+    drawer.classList.remove('open');
+  }
+});
+
+// swipe
+let tx = 0, ty = 0;
+document.getElementById('storyViewer').addEventListener('touchstart', e => {
+  tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+}, { passive: true });
+document.getElementById('storyViewer').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  const dy = e.changedTouches[0].clientY - ty;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) dx < 0 ? nextPhoto() : prevPhoto();
+}, { passive: true });
+
+// keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') nextPhoto();
+  if (e.key === 'ArrowLeft')  prevPhoto();
+});
+
+buildBars();
+showPhoto(0);
 </script>
 </body>
 </html>
