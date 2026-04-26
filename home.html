@@ -80,6 +80,38 @@
         <div class="tile-name">Memories</div>
         <div class="tile-desc">Every photo of us</div>
       </a>
+      <a class="menu-tile fade-up fade-up-4" href="calendar.html">
+        <div class="tile-icon">📆</div>
+        <div class="tile-name">Calendar</div>
+        <div class="tile-desc">Special dates</div>
+      </a>
+    </div>
+
+    <!-- QUOTE CARD -->
+    <div class="card-soft fade-up fade-up-5" style="margin-top: 20px; text-align:center;">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--text-dark); line-height:1.5; font-style:italic;">
+        "In all the world, there is no heart for me like yours."
+      </p>
+      <p style="font-size:11px; color:var(--text-light); margin-top:10px; letter-spacing:0.06em;">— Maya Angelou</p>
+    </div>
+
+    <!-- LITTLE THINGS -->
+    <p class="menu-section-label fade-up" style="margin-top:20px;">Little things I love about you</p>
+    <div class="card fade-up" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:flex-start; gap:10px;">
+        <span style="font-size:18px; flex-shrink:0;">🌸</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.55;">Write something here ♡</p>
+      </div>
+      <div style="height:1px; background:var(--border);"></div>
+      <div style="display:flex; align-items:flex-start; gap:10px;">
+        <span style="font-size:18px; flex-shrink:0;">✨</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.55;">Write something here ♡</p>
+      </div>
+      <div style="height:1px; background:var(--border);"></div>
+      <div style="display:flex; align-items:flex-start; gap:10px;">
+        <span style="font-size:18px; flex-shrink:0;">🤍</span>
+        <p style="font-size:13px; color:var(--text-mid); line-height:1.55;">Write something here ♡</p>
+      </div>
     </div>
 
   </div>
@@ -108,7 +140,7 @@
 <script src="script.js"></script>
 <script>
   // Love counter — set your anniversary start date here (YYYY, MM-1, DD)
-  const START = new Date(2025, 10, 1); // Nov 1 2024 — adjust!
+  const START = new Date(2024, 10, 1); // Nov 1 2024 ✓
   function updateCounter() {
     const now = new Date();
     const diff = now - START;
