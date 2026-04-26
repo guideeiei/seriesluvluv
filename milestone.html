@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Milestone ✨</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* รูปใน milestone — contain เหมือน memories ไม่ตัด */
+  .tl-photo {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 12px;
+    display: block;
+    background: #0d0408;
+    object-fit: contain;
+    max-height: 420px;
+  }
+</style>
 </head>
 <body>
 
@@ -27,10 +39,9 @@
       <div class="tl-content">
         <div class="tl-month">November</div>
         <div class="tl-card">
-          <div class="tl-headline"> become couple with chuu </div>
-          <div class="tl-body"> 15 days after confess ldr start.</div>
-          <!-- Photo placeholder: swap src to e.g. November/12-November.jpeg -->
-        <img class="tl-photo" src="images/image/IMG_9085.JPG" alt="November">
+          <div class="tl-headline">become couple with chuu</div>
+          <div class="tl-body">15 days after confess ldr start.</div>
+          <img class="tl-photo" src="images/image/IMG_9085.JPG" alt="November">
         </div>
       </div>
     </div>
@@ -41,8 +52,8 @@
       <div class="tl-content">
         <div class="tl-month">December</div>
         <div class="tl-card">
-          <div class="tl-headline"> 1 month after confessed love more even annoy you </div>
-          <div class="tl-body"> A month before new year luv u tee sood.</div>
+          <div class="tl-headline">1 month after confessed love more even annoy you</div>
+          <div class="tl-body">A month before new year luv u tee sood.</div>
           <img class="tl-photo" src="images/image/IMG_9758.PNG" alt="December">
         </div>
       </div>
@@ -55,7 +66,7 @@
         <div class="tl-month">January</div>
         <div class="tl-card">
           <div class="tl-headline">2 months laew love you kub</div>
-          <div class="tl-body"> Tasmania girl fighting kub bibii.</div>
+          <div class="tl-body">Tasmania girl fighting kub bibii.</div>
           <img class="tl-photo" src="images/image/IMG_0771.PNG" alt="January">
         </div>
       </div>
@@ -105,12 +116,21 @@
       <div class="tl-dot-col"><div class="tl-dot star"></div></div>
       <div class="tl-content">
         <div class="tl-month">May · 6 months 🎀</div>
-        <div class="tl-card featured">
-          <div class="tl-headline">Half a year with you</div>
-          <div class="tl-body">
-           Thank you for every single day. Here's to everything that's still ahead of us. ♡
+        <div class="tl-card featured" style="text-align:center; padding: 24px 16px;">
+          <div style="font-size:32px; margin-bottom:10px;">🎀</div>
+          <div class="tl-headline">Half a year</div>
+          <div class="tl-body" style="margin-top:8px;">
+            Coming soon — our 6-month anniversary.<br>
+            Thank you for every single day. ♡
           </div>
-          <div class="tl-photo">📸</div>
+          <div id="countdownDisplay" style="
+            margin-top: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--rose-deep);
+          ">—</div>
+          <div style="font-size:11px; color:var(--text-light); margin-top:4px; letter-spacing:0.06em; text-transform:uppercase;" id="countdownLabel">days to go</div>
         </div>
       </div>
     </div>
@@ -139,5 +159,24 @@
 </nav>
 
 <script src="script.js"></script>
+<script>
+(function() {
+  const target = new Date('2026-05-01T00:00:00');
+  const el     = document.getElementById('countdownDisplay');
+  const label  = document.getElementById('countdownLabel');
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) {
+      el.textContent    = '🎉';
+      label.textContent = "it's here!";
+    } else {
+      el.textContent    = Math.ceil(diff / 86400000);
+      label.textContent = 'days to go';
+    }
+  }
+  tick();
+  setInterval(tick, 60000);
+})();
+</script>
 </body>
 </html>
