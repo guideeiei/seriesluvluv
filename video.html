@@ -18,54 +18,170 @@
     <p class="page-sub">Clips I never want to forget</p>
   </div>
 
+  <style>
+    .video-card { cursor: pointer; }
+    .vid-poster-wrap {
+      width: 100%;
+      aspect-ratio: 9/16;
+      position: relative;
+      background: #1a0810;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
+    }
+    .vid-poster-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .vid-poster-wrap:hover img { transform: scale(1.03); }
+    .vid-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.18);
+    }
+    .vid-play-circle {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .vid-play-circle svg { width: 26px; height: 26px; fill: var(--rose); margin-left: 3px; }
+    /* fullscreen video overlay */
+    .vid-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .vid-overlay.open { display: flex; }
+    .vid-overlay video {
+      width: 100%; height: 100%;
+      object-fit: contain;
+    }
+    .vid-close-btn {
+      position: absolute;
+      top: max(16px, env(safe-area-inset-top));
+      right: 16px;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+      z-index: 1000;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .vid-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+      background: linear-gradient(160deg, #1a0810, #2a1020);
+    }
+    .vid-placeholder span { font-size: 36px; }
+    .vid-placeholder p { font-size: 11px; color: rgba(255,255,255,0.3); font-family: 'DM Sans', sans-serif; }
+  </style>
+
+  <!-- VIDEO OVERLAY PLAYER -->
+  <div class="vid-overlay" id="vidOverlay">
+    <div class="vid-close-btn" onclick="closeVid()">✕</div>
+    <video id="overlayVid" controls playsinline></video>
+  </div>
+
   <div class="video-grid">
 
     <!--
-      HOW TO ADD A VIDEO:
-      1. Put your .mp4 file in the repo (e.g. a folder called "Videos/")
-      2. Replace the src in <video> below
-      3. Change the title and date text
-
-      For each video, copy one .video-card block
+    HOW TO ADD A VIDEO:
+    1. วางไฟล์ .mp4 ไว้ใน repo (เช่น folder "vid/")
+    2. เปลี่ยน data-src เป็น path วิดีโอ
+    3. เปลี่ยน poster img src เป็นรูป frame แรกของวิดีโอ
+    4. แก้ชื่อและวันที่
+    คัดลอก .video-card block เพื่อเพิ่มวิดีโอใหม่
     -->
-  <div class="video-card fade-up fade-up-1">
-      <div class="video-thumb">
-        <video src="video/1st_time sticker.MP4" controls playsinline poster="video/1st_time sticker.MP4"></video>
+
+    <div class="video-card fade-up fade-up-1" onclick="playVid(this)">
+      <div class="vid-poster-wrap">
+        <!-- ใส่รูป poster: -->
+        <!-- <img src="vid/clip-1-thumb.jpg" alt=""> -->
+        <div class="vid-placeholder"><span>🎬</span><p>Add poster image</p></div>
+        <div class="vid-play-btn">
+          <div class="vid-play-circle">
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+        </div>
       </div>
       <div class="video-meta">
-        <div class="video-title">1st_time sticker with chuu</div>
-        <div class="video-date">Nov 2025</div>
+        <div class="video-title">Add your video title here</div>
+        <div class="video-date">Month · Year</div>
       </div>
-    </div>
-    <div class="video-card fade-up fade-up-2">
-      <div class="video-thumb">
-        <video src="video/sculpture.MP4" controls playsinline poster="images/mar/1-3-2026.JPG"></video> 
-      </div>
-      <div class="video-meta">
-        <div class="video-title">sticker booth with bibii</div>
-        <div class="video-date">Mar 2026 </div>
-      </div>
+      <!-- วิดีโอจริง: -->
+      <video style="display:none" data-src="vid/clip-1.mp4" preload="none"></video>
     </div>
 
-    <div class="video-card fade-up fade-up-3">
-      <div class="video-thumb">
-        <video src="video/IMG_1925.mov" controls playsinline poster="video/IMG_1925.mov"></video>
+    <div class="video-card fade-up fade-up-2" onclick="playVid(this)">
+      <div class="vid-poster-wrap">
+        <!-- <img src="vid/clip-2-thumb.jpg" alt=""> -->
+        <div class="vid-placeholder"><span>🎬</span><p>Add poster image</p></div>
+        <div class="vid-play-btn">
+          <div class="vid-play-circle">
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+        </div>
       </div>
       <div class="video-meta">
-        <div class="video-title">study together🔥 </div>
-        <div class="video-date">Feb 2026</div>
+        <div class="video-title">Add your video title here</div>
+        <div class="video-date">Month · Year</div>
       </div>
+      <video style="display:none" data-src="vid/clip-2.mp4" preload="none"></video>
     </div>
- <div class="video-card fade-up fade-up-4">
-      <div class="video-thumb">
-        <video src="video/cute_cute.mov" controls playsinline poster="video/cute_cute.mov"></video>
+
+    <div class="video-card fade-up fade-up-3" onclick="playVid(this)">
+      <div class="vid-poster-wrap">
+        <!-- <img src="vid/clip-3-thumb.jpg" alt=""> -->
+        <div class="vid-placeholder"><span>🎬</span><p>Add poster image</p></div>
+        <div class="vid-play-btn">
+          <div class="vid-play-circle">
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+        </div>
       </div>
       <div class="video-meta">
-        <div class="video-title">random things while vdo call </div>
-        <div class="video-date">Apr 2026</div>
+        <div class="video-title">Add your video title here</div>
+        <div class="video-date">Month · Year</div>
       </div>
+      <video style="display:none" data-src="vid/clip-3.mp4" preload="none"></video>
     </div>
+
   </div>
+
+  <script>
+  function playVid(card) {
+    const vid   = card.querySelector('video[data-src]');
+    const overlay = document.getElementById('vidOverlay');
+    const ovVid   = document.getElementById('overlayVid');
+    if (!vid) return;
+    ovVid.src = vid.dataset.src;
+    overlay.classList.add('open');
+    ovVid.play();
+  }
+  function closeVid() {
+    const overlay = document.getElementById('vidOverlay');
+    const ovVid   = document.getElementById('overlayVid');
+    ovVid.pause();
+    ovVid.src = '';
+    overlay.classList.remove('open');
+  }
+  </script>
 </div>
 
 <!-- NAV BAR -->
